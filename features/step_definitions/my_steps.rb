@@ -1,20 +1,22 @@
-Given(/^I have a Package which consists of a PDF and MXF file$/) do
-  puts 'hello from the first step'
+Given(/^I copy file "([^"]*)" to FTP server "([^"]*)" into folder "([^"]*)"$/) do |file, ftp_server, ftp_folder|
+  require './utilities/ftp_helper'
+  ftp = FtpHelper.new(ftp_server, 'wow4in@gmail.com', '00a029ca8b2c')
+  ftp.send_file(file, ftp_folder)
 end
 
 And(/^I FTP these files to location (.*)$/) do |location|
-  puts 'hello from the first step'
+  pending
 end
 
 When(/^I send a SOAP request to (.*) with following request:$/) do |endpoint, table|
   # table is a table.hashes.keys # => [:"test_operation", :"send_from_agent_A", :"send_from_agent_B]
-  puts 'hello from the first step'
+  pending
 end
 
 Then(/^I should get a success result from the SOAP request$/) do
-  puts 'hello from the first step'
+  pending
 end
 
 And(/^I verify files are no longer in "\\\\networkshare\\"$/) do
-  puts 'hello from the first step'
+  pending
 end
