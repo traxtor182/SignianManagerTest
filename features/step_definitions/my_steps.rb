@@ -1,5 +1,6 @@
+require './utilities/ftp_helper'
+
 Given(/^I copy file "([^"]*)" to FTP server "([^"]*)" into folder "([^"]*)"$/) do |file, ftp_server, ftp_folder|
-  require './utilities/ftp_helper'
   ftp = FtpHelper.new(ftp_server, 'wow4in@gmail.com', '00a029ca8b2c')
   ftp.send_file(file, ftp_folder)
 end
@@ -17,6 +18,11 @@ Then(/^I should get a success result from the SOAP request$/) do
   pending
 end
 
-And(/^I verify files are no longer in "\\\\networkshare\\"$/) do
+And(/^I verify files are no longer in (.*)$/) do |location|
   pending
+end
+
+And(/^I verify that file "([^"]*)" exists in folder "([^"]*)" of ftp server "([^"]*)"$/) do |filename, folder, ftp_server|
+  ftp = FtpHelper.new(ftp_server, 'wow4in@gmail.com', '00a029ca8b2c')
+  puts ftp.file_exists(filename, folder)
 end
