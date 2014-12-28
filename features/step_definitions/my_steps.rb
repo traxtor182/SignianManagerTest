@@ -2,6 +2,7 @@ require './utilities/ftp_helper'
 
 Given(/^I copy file "([^"]*)" to FTP server "([^"]*)" into folder "([^"]*)"$/) do |file, ftp_server, ftp_folder|
   ftp = FtpHelper.new(ftp_server, 'wow4in@gmail.com', '00a029ca8b2c')
+  #todo Move credentials to global params
   ftp.send_file(file, ftp_folder)
 end
 
@@ -24,6 +25,7 @@ end
 
 And(/^I verify that file "([^"]*)" exists in folder "([^"]*)" of ftp server "([^"]*)"$/) do |filename, folder, ftp_server|
   ftp = FtpHelper.new(ftp_server, 'wow4in@gmail.com', '00a029ca8b2c')
+  #todo Move credentials to global params
   assert ftp.file_exists(filename, folder)
 
 end
