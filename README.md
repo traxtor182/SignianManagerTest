@@ -1,0 +1,7 @@
+SignianManagerTest
+==================
+
+Required gems:
+- cucumber
+
+
