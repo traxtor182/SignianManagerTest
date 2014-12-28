@@ -24,5 +24,6 @@ end
 
 And(/^I verify that file "([^"]*)" exists in folder "([^"]*)" of ftp server "([^"]*)"$/) do |filename, folder, ftp_server|
   ftp = FtpHelper.new(ftp_server, 'wow4in@gmail.com', '00a029ca8b2c')
-  puts ftp.file_exists(filename, folder)
+  assert ftp.file_exists(filename, folder)
+
 end
